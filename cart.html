@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>cart</title>
+    <link rel="stylesheet" href="indexCSS.css" />
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div id="nav">
+         <div> SHOPmE</div>
+       <!-- <div><a href="signup.html">Signup</a></div> -->
+         <div class="cat"><a href="mens.html">Mens</a></div>
+        <div class="cat" ><a href="women.html">Womens </a> </div>
+         <div><a href="cart.html">Cart</a></div>   
+    </div>
+    <h2>Total = <p id="total"></p></h2>
+<div id="cartpage">
+
+
+</div>
+
+</body>
+</html>
+<script>
+
+var cart=JSON.parse(localStorage.getItem("cartdata"))
+console.log(cart)
+
+var count=0
+
+disply(cart);
+
+function disply(cart)
+{
+
+cart.forEach(function(el,i){
+    count+=+el.price
+      console.log(count)
+      var total=document.querySelector("#total")
+        total.innerText=count
+       
+    var box=document.createElement("div");
+
+var image=document.createElement("img")
+image.setAttribute("src",el.pic)
+var nam=document.createElement("h3")
+nam.innerText=el.name;
+var prices=document.createElement("p");
+prices.innerText=el.price;
+var brands=document.createElement("p");
+brands.innerText=el.brand;
+var btn=document.createElement("button");
+btn.innerText="Delete";
+btn.addEventListener("click",function(){
+    addcart(el,i)
+})
+
+
+box.append(image,nam,prices,brands,btn)
+document.querySelector("#cartpage").append(box)
+
+})
+
+}
+
+function addcart(el,i){
+
+    cart.splice(i,1)
+    disply(cart)
+    localStorage.setItem("cartdata",JSON.stringify(cart));
+    window.location.reload();
+  
+   
+}
+
+
+</script>

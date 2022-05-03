@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>cart</title>
+    <link rel="stylesheet" href="indexCSS.css" />
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div id="nav">
+         <div> SHOPmE</div>
+       <!-- <div><a href="signup.html">Signup</a></div> -->
+         <div class="cat"><a href="mens.html">Mens</a></div>
+        <div class="cat" ><a href="women.html">Womens </a> </div>
+         <div><a href="cart.html">Cart</a></div>   
+    </div>
+<div id="menpage">
+<!-- <img src="https://images.meesho.com/images/products/98793446/ooz0o_512.jpg" alt=""> -->
+
+
+</div>
+
+</body>
+</html>
+<script>
+    
+
+data=[
+    {pic:"https://images.meesho.com/images/products/99727036/ckf5s_512.jpg", name:"Pant", price:"200", brand:"jogger Track Pants"},
+    {pic:"https://images.meesho.com/images/products/2644050/1_512.jpg", name:"shirt", price:"300", brand:"LouisP"},
+    {pic:"https://images.meesho.com/images/products/4477568/1_512.jpg" ,name:"tshirt", price:"260", brand:"Nike"},
+    {pic:"https://images.meesho.com/images/products/25038146/25b21_512.jpg", name:"shirt", price:"600" ,brand:"ADD"},
+    {pic:"https://images.meesho.com/images/products/98793446/ooz0o_512.jpg", name:"tshirt", price:"500", brand:"Nike"},
+    {pic:"https://images.meesho.com/images/products/2458627/1_512.jpg", name:"shirt" ,price:"2000", brand:"ADD"},
+    
+]
+
+display(data)
+function display(data)
+{
+ 
+
+data.forEach(function(el){
+
+
+       
+var box=document.createElement("div");
+
+var image=document.createElement("img")
+image.setAttribute("src",el.pic)
+var nam=document.createElement("h3")
+nam.innerText=el.name;
+var prices=document.createElement("p");
+prices.innerText=el.price;
+var brands=document.createElement("p");
+brands.innerText=el.brand;
+var btn=document.createElement("button");
+btn.innerText="Add to cart";
+btn.addEventListener("click",function(){
+addcart(el)
+})
+
+
+box.append(image,nam,prices,brands,btn)
+document.querySelector("#menpage").append(box)
+
+})
+
+}
+var cartdata=JSON.parse(localStorage.getItem("cartdata"))|| []
+function addcart(el){
+
+cartdata.push(el);
+localStorage.setItem("cartdata",JSON.stringify(cartdata))
+alert("Item added to Cart")
+}
+
+</script>

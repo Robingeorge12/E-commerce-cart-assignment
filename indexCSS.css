@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding:0px;
+}
+#nav{
+    display: flex;
+background-color: aqua;
+justify-content: space-around;
+font-size: 25px;
+color:rgb(216, 15, 136);
+padding: 20px;
+}
+/* #nav>div{
+    display: flex;
+    justify-content:space-evenly;
+    color:black;  
+} */
+#form{
+    width:30%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: bisque;
+
+}
+#form>input,h3{
+    margin: auto;
+    display: block;
+    padding: 20px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    
+}
+
+/* #btn{
+    padding:15px 20px 15px 20px ;  
+}  */
+h3{
+    font-size: 20px;
+    margin: 10px 0px 3px 0px;
+}
+a{
+    text-decoration: none;
+    color:rgb(21, 6, 184);
+
+}
+#home
+{
+    margin: auto;
+    width: fit-content;
+}

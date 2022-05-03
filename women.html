@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>cart</title>
+    <link rel="stylesheet" href="indexCSS.css" />
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div id="nav">
+         <div> SHOPmE</div>
+       <!-- <div><a href="signup.html">Signup</a></div> -->
+         <div class="cat"><a href="mens.html">Mens</a></div>
+        <div class="cat" ><a href="women.html">Womens </a> </div>
+         <div><a href="cart.html">Cart</a></div>   
+    </div>
+<div id="womenpage">
+
+
+</div>
+
+</body>
+</html>
+<script>
+
+wdata=[
+    {pic:"https://images.meesho.com/images/products/60877487/bryxj_512.jpg", name:"Pant", price:"2090", brand:"jogger Track"},
+    {pic:"https://images.meesho.com/images/products/60877485/ocf6d_512.jpg", name:"kurta", price:"3050", brand:"Loui"},
+    {pic:"https://images.meesho.com/images/products/60877486/1xccv_512.jpg" ,name:"Top", price:"2600", brand:"Nyke"},
+    {pic:"https://images.meesho.com/images/products/35357584/sb3dp_512.jpg", name:"Skirt", price:"600" ,brand:"ADD"},
+    {pic:"https://images.meesho.com/images/products/2878495/1_512.jpg", name:"Saree", price:"5050", brand:"Nike"},
+    {pic:"https://images.meesho.com/images/products/1456989/1_512.jpg", name:"KanjipuramSaree" ,price:"2220", brand:"ADD"},
+    
+]
+
+women(wdata);
+
+function women(wdata)
+{
+
+
+wdata.forEach(function(el){
+
+
+       
+    var box=document.createElement("div");
+
+var image=document.createElement("img")
+image.setAttribute("src",el.pic)
+var nam=document.createElement("h3")
+nam.innerText=el.name;
+var prices=document.createElement("p");
+prices.innerText=el.price;
+var brands=document.createElement("p");
+brands.innerText=el.brand;
+var btn=document.createElement("button");
+btn.innerText="Add to cart";
+btn.addEventListener("click",function(){
+    addcart(el)
+})
+
+
+box.append(image,nam,prices,brands,btn)
+document.querySelector("#womenpage").append(box)
+
+})
+
+}
+var cartdata=JSON.parse(localStorage.getItem("cartdata"))|| []
+function addcart(el){
+
+    cartdata.push(el);
+    localStorage.setItem("cartdata",JSON.stringify(cartdata))
+    alert("Item added to Cart")
+}
+
+
+</script>
+
+<!-- 
+var cart=cartdata.forEach(function(card){
+    if (card==el)
+    return 1;
+    else
+}) -->

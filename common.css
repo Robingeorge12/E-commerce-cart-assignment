@@ -1,0 +1,47 @@
+img{
+
+
+    height: 600px;
+    width: 100%;
+
+}
+#menpage,#cartpage, #womenpage{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,auto);
+    gap:20px;
+
+}
+#menpage>div>p,h3,cartpage>div>p{
+text-align: center;
+
+}
+#menpage>div>img+h3,#cartpage>div>img+h3{
+   margin-top: -12px;
+}
+h3+p{
+   margin-top: -14px;
+   color:greenyellow
+ }
+ h3+p+p{
+     font-weight:600;
+ }
+h2{
+    display:flex;
+}
+
+
+/* {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,auto);
+    gap:20px;
+
+} */
+#womenpage>div>p,h3{
+    text-align: center;
+    
+    }
+    #women>div>img+h3{
+       margin-top: -12px;
+    }
